@@ -36,8 +36,9 @@ namespace GameProject
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.IsFullScreen = false;
+            graphics.IsFullScreen = true;
         }
+
 
         public void ScalePresentationArea()
         {
@@ -108,6 +109,9 @@ namespace GameProject
             keyboardState = Keyboard.GetState();
 
             bool continuePressed = keyboardState.IsKeyDown(Keys.Space);
+
+            if (keyboardState.IsKeyDown(Keys.Escape))
+                Exit();
 
             if (!wasContinuePressed && continuePressed)
             {

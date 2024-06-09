@@ -296,9 +296,9 @@ namespace GameProject
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             if (Velocity.X > 0)
-                flip = SpriteEffects.FlipHorizontally;
-            else if (Velocity.X < 0)
                 flip = SpriteEffects.None;
+            else if (Velocity.X < 0)
+                flip = SpriteEffects.FlipHorizontally;
 
             sprite.Draw(gameTime, spriteBatch, Position, flip);
         }

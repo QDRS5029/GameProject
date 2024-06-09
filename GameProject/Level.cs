@@ -128,20 +128,12 @@ namespace GameProject
                 // Exit
                 case 'X':
                     return LoadExitTile(x, y);
-
-                // Floating platform
-                case '-':
-                    return LoadTile("Platform", TileCollision.Platform);
      
                 // Various enemies
                 case 'A':
                     return LoadEnemyTile(x, y, "MonsterA");
                 case 'B':
                     return LoadEnemyTile(x, y, "MonsterB");
-                case 'C':
-                    return LoadEnemyTile(x, y, "MonsterC");
-                case 'D':
-                    return LoadEnemyTile(x, y, "MonsterD");
 
                 // Platform block
                 case '~':
@@ -172,9 +164,6 @@ namespace GameProject
 
         private Tile LoadStartTile(int x, int y)
         {
-            if (Player != null)
-                throw new NotSupportedException("A level may only have one starting point.");
-
             start = GetBounds(x, y).GetBottomCenter();
             player = new Player(this, start);
 
@@ -184,7 +173,7 @@ namespace GameProject
         private Tile LoadExitTile(int x, int y)
         {
             if (exit != InvalidPosition)
-                throw new NotSupportedException("A level may only have one exit.");
+                throw new NotSupportedException("some exit");
 
             exit = GetBounds(x, y).Center;
 
